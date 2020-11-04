@@ -29,7 +29,13 @@ app.get("/contact", function(req, res) {
 });
 
 app.get("/compose", function(req, res) {
-  res.render("compose" , {startingContent: contactContent});
+  res.render("compose");
+});
+
+app.post("/compose", function(req, res) {
+  item = req.body.newItem;
+  console.log(item);
+  
 });
 
 
