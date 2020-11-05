@@ -33,7 +33,7 @@ app.get("/compose", function(req, res) {
 });
 
 app.post("/compose", function(req, res) {
-  item = req.body.newItem;
+  item = req.body.postTitle;
   console.log(item);
   
 });
