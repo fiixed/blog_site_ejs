@@ -10,7 +10,7 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 let posts = [];
@@ -46,7 +46,11 @@ app.post('/compose', (req, res) => {
 });
 
 app.get('/posts/:postName', (req, res) => {
-  console.log(req.params.postName);
+  posts.forEach((e) => {
+    if (e.title === req.params.postName) {
+      console.log("Match Found!");
+    }
+  });
 });
 
 
