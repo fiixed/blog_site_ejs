@@ -48,11 +48,12 @@ app.post('/compose', (req, res) => {
 
 app.get('/posts/:postName', (req, res) => {
   posts.forEach((e) => {
-    if (e.title === _.lowerCase(req.params.postName)) {
-      console.log("Match Found!");
-    } else {
-      console.log("Not a match");
-    }
+    if (_.lowerCase(e.title) === _.lowerCase(req.params.postName)) {
+      res.render('post' , {
+        title: e.title, 
+        content: e.content
+      });
+    } 
   });
 });
 
